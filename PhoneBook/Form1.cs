@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace PhoneBook
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void LogIn_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Visible = false;
+                Pages pages = new Pages();
+                pages.ShowDialog();
+                this.Visible = true;
+            }
         }
     }
 }
