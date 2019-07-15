@@ -51,11 +51,12 @@ namespace PhoneBook
 
         private void CreatePanelList()
         {
-            if(new CollectionsNumber().NumberDatas.Count > 0)
+            CollectionsNumber collectionsNumber = new CollectionsNumber();
+            if(collectionsNumber.NumberDatas.Count > 0)
             {
-                Panel[] panels = new Panel[new CollectionsNumber().NumberDatas.Count];
+                Panel[] panels = new Panel[collectionsNumber.NumberDatas.Count];
                 int i = 0;
-                foreach(var nd in new CollectionsNumber().NumberDatas)
+                foreach(var nd in collectionsNumber.NumberDatas)
                 {
                     panels[i] = new Panel()
                     {
@@ -84,8 +85,7 @@ namespace PhoneBook
                     Remove.Click += (a, b) =>
                     {
                         k++;
-                        CollectionsNumber collectionsNumber = new CollectionsNumber();
-                        var ItemToRemove = collectionsNumber.NumberDatas.FirstOrDefault(u => u.Name == nd.Name && u.Number == nd.Number);
+                        NumberData ItemToRemove = ReturnCurrentPanel(collectionsNumber, nd);
                         collectionsNumber.RemovePeople(ItemToRemove);
                     };
                     panels[i].Controls.Add(Remove);
@@ -95,7 +95,7 @@ namespace PhoneBook
                         Size = new Size(192, 18),
                         Location = new Point(17, 14),
                         Name = "ContactName" + i,
-                        Text = nd.Name
+                        Text = nd.FirstName
                     };
                     panels[i].Controls.Add(ContactsName);
 
@@ -104,13 +104,44 @@ namespace PhoneBook
                         Size = ContactsName.Size,
                         Location = new Point(ContactsName.Left, 51),
                         Name = "ContactNumber" + i,
-                        Text = nd.Number
+                        Text = nd.Number[0]
                     };
                     panels[i].Controls.Add(ContactsNumber);
+                    panels[i].Click += (a, b) =>
+                    {
+                        NumberData ChosenItem = ReturnCurrentPanel(collectionsNumber, nd);
+                        SetRightPanel(ChosenItem);
+                    };
                     PanelLeft.Controls.Add(panels[i]);
                     i++;
                 }
             }
         }
+
+        private void SetRightPanel(NumberData ChosenItem)
+        {
+            if (ChosenItem.FirstName != null)
+            {
+                FirstNameTextBox.Text = ChosenItem.FirstName;
+            }
+            if (ChosenItem.SecondName != null)
+            {
+                SecondNameTextBox.Text = ChosenItem.SecondName;
+            }
+            if (ChosenItem.Patronynic != null)
+            {
+                SecondNameTextBox.Text = ChosenItem.Patronynic;
+            }
+            if (ChosenItem.Birthday != null)
+            {
+                BirthMark.Text = ChosenItem.Birthday.ToShortDateString();
+            }
+        }
+
+        private static NumberData ReturnCurrentPanel(CollectionsNumber collectionsNumber, NumberData nd)
+        {
+            return collectionsNumber.NumberDatas.FirstOrDefault(u => u.FirstName == nd.FirstName && u.Number == nd.Number);
+        }
+        
     }
 }
