@@ -32,15 +32,15 @@
             this.RefreshButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.PanelRight = new System.Windows.Forms.Panel();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.AddNumberTextBox = new System.Windows.Forms.TextBox();
+            this.AddNumberToChosePeople = new System.Windows.Forms.Button();
+            this.ComboBoxNumber = new System.Windows.Forms.ComboBox();
             this.PatronymicTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.SecondNameTextBox = new System.Windows.Forms.TextBox();
             this.BirthMark = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ComboBoxNumber = new System.Windows.Forms.ComboBox();
-            this.AddNumberToChosePeople = new System.Windows.Forms.Button();
-            this.AddNumberTextBox = new System.Windows.Forms.TextBox();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.PanelLeft.SuspendLayout();
             this.PanelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -99,6 +99,46 @@
             this.PanelRight.Size = new System.Drawing.Size(350, 585);
             this.PanelRight.TabIndex = 3;
             // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SaveButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveButton.Location = new System.Drawing.Point(227, 516);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(72, 26);
+            this.SaveButton.TabIndex = 12;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // AddNumberTextBox
+            // 
+            this.AddNumberTextBox.Location = new System.Drawing.Point(203, 202);
+            this.AddNumberTextBox.Name = "AddNumberTextBox";
+            this.AddNumberTextBox.Size = new System.Drawing.Size(129, 20);
+            this.AddNumberTextBox.TabIndex = 11;
+            // 
+            // AddNumberToChosePeople
+            // 
+            this.AddNumberToChosePeople.BackColor = System.Drawing.Color.Blue;
+            this.AddNumberToChosePeople.ForeColor = System.Drawing.Color.Snow;
+            this.AddNumberToChosePeople.Location = new System.Drawing.Point(227, 228);
+            this.AddNumberToChosePeople.Name = "AddNumberToChosePeople";
+            this.AddNumberToChosePeople.Size = new System.Drawing.Size(81, 50);
+            this.AddNumberToChosePeople.TabIndex = 10;
+            this.AddNumberToChosePeople.Text = "Добавить номер";
+            this.AddNumberToChosePeople.UseVisualStyleBackColor = false;
+            this.AddNumberToChosePeople.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddNumberToChosePeople_MouseClick);
+            // 
+            // ComboBoxNumber
+            // 
+            this.ComboBoxNumber.FormattingEnabled = true;
+            this.ComboBoxNumber.Location = new System.Drawing.Point(30, 201);
+            this.ComboBoxNumber.Name = "ComboBoxNumber";
+            this.ComboBoxNumber.Size = new System.Drawing.Size(162, 21);
+            this.ComboBoxNumber.TabIndex = 9;
+            // 
             // PatronymicTextBox
             // 
             this.PatronymicTextBox.Location = new System.Drawing.Point(154, 128);
@@ -144,46 +184,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             // 
-            // ComboBoxNumber
-            // 
-            this.ComboBoxNumber.FormattingEnabled = true;
-            this.ComboBoxNumber.Location = new System.Drawing.Point(30, 201);
-            this.ComboBoxNumber.Name = "ComboBoxNumber";
-            this.ComboBoxNumber.Size = new System.Drawing.Size(162, 21);
-            this.ComboBoxNumber.TabIndex = 9;
-            // 
-            // AddNumberToChosePeople
-            // 
-            this.AddNumberToChosePeople.BackColor = System.Drawing.Color.Blue;
-            this.AddNumberToChosePeople.ForeColor = System.Drawing.Color.Snow;
-            this.AddNumberToChosePeople.Location = new System.Drawing.Point(227, 228);
-            this.AddNumberToChosePeople.Name = "AddNumberToChosePeople";
-            this.AddNumberToChosePeople.Size = new System.Drawing.Size(81, 50);
-            this.AddNumberToChosePeople.TabIndex = 10;
-            this.AddNumberToChosePeople.Text = "Добавить номер";
-            this.AddNumberToChosePeople.UseVisualStyleBackColor = false;
-            this.AddNumberToChosePeople.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddNumberToChosePeople_MouseClick);
-            // 
-            // AddNumberTextBox
-            // 
-            this.AddNumberTextBox.Location = new System.Drawing.Point(203, 202);
-            this.AddNumberTextBox.Name = "AddNumberTextBox";
-            this.AddNumberTextBox.Size = new System.Drawing.Size(129, 20);
-            this.AddNumberTextBox.TabIndex = 11;
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SaveButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveButton.Location = new System.Drawing.Point(227, 516);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(72, 26);
-            this.SaveButton.TabIndex = 12;
-            this.SaveButton.Text = "Save";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
             // Pages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +195,7 @@
             this.ClientSize = new System.Drawing.Size(1016, 721);
             this.Controls.Add(this.PanelRight);
             this.Controls.Add(this.PanelLeft);
+            this.MaximizeBox = false;
             this.Name = "Pages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pages";

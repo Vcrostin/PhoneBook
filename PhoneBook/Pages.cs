@@ -51,9 +51,9 @@ namespace PhoneBook
 
         private static int ND;
 
+        private CollectionsNumber collectionsNumber = new CollectionsNumber();
         private void CreatePanelList()
         {
-            CollectionsNumber collectionsNumber = new CollectionsNumber();
             if(collectionsNumber.NumberDatas.Count > 0)
             {
                 Panel[] panels = new Panel[collectionsNumber.NumberDatas.Count];
@@ -116,7 +116,7 @@ namespace PhoneBook
                         Text = nd.Number[0]
                     };
                     panels[i].Controls.Add(ContactsNumber);
-                    panels[i].Click += (a, b) =>
+                    panels[i].MouseClick += (a, b) =>
                     {
                         NumberData ChosenItem = ReturnCurrentPanel(collectionsNumber, nd.ID);
                         ND = nd.ID;
@@ -139,9 +139,17 @@ namespace PhoneBook
             {
                 SecondNameTextBox.Text = ChosenItem.SecondName;
             }
+            else
+            {
+                SecondNameTextBox.Text = "Фамилия";
+            }
             if (ChosenItem.Patronynic != null)
             {
-                SecondNameTextBox.Text = ChosenItem.Patronynic;
+                PatronymicTextBox.Text = ChosenItem.Patronynic;
+            }
+            else
+            {
+                PatronymicTextBox.Text = "Отчество";
             }
             if (ChosenItem.Birthday != null)
             {
@@ -168,14 +176,14 @@ namespace PhoneBook
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            CollectionsNumber collectionsNumber = new CollectionsNumber();
             var nd = ReturnCurrentPanel(collectionsNumber, ND);
             nd.FirstName = FirstNameTextBox.Text;
             nd.SecondName = SecondNameTextBox.Text;
-            nd.Patronynic = SecondNameTextBox.Text;
+            nd.Patronynic = PatronymicTextBox.Text;
             nd.Birthday = DateTime.Parse(BirthMark.Text);
             nd.Number = ComboBoxNumber.Items.Cast<string>().ToList();
             collectionsNumber.SaveData();
+            collectionsNumber.UpdateData();
         }
     }
 }
