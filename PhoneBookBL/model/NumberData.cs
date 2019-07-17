@@ -9,7 +9,7 @@ namespace PhoneBookBL.model
     [Serializable]
     public class NumberData
     {
-        int ID { get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string Patronynic { get; set; }

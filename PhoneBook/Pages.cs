@@ -49,6 +49,8 @@ namespace PhoneBook
 
         public static int k = 0;
 
+        private static int ND;
+
         private void CreatePanelList()
         {
             CollectionsNumber collectionsNumber = new CollectionsNumber();
@@ -85,8 +87,15 @@ namespace PhoneBook
                     Remove.Click += (a, b) =>
                     {
                         k++;
-                        NumberData ItemToRemove = ReturnCurrentPanel(collectionsNumber, nd);
+                        NumberData ItemToRemove = ReturnCurrentPanel(collectionsNumber, nd.ID);
                         collectionsNumber.RemovePeople(ItemToRemove);
+                        int index = 0;
+                        foreach(var s in collectionsNumber.NumberDatas)
+                        {
+                            s.ID = index;
+                            index++;
+                        }
+                        collectionsNumber.SaveData();
                     };
                     panels[i].Controls.Add(Remove);
 
@@ -109,7 +118,8 @@ namespace PhoneBook
                     panels[i].Controls.Add(ContactsNumber);
                     panels[i].Click += (a, b) =>
                     {
-                        NumberData ChosenItem = ReturnCurrentPanel(collectionsNumber, nd);
+                        NumberData ChosenItem = ReturnCurrentPanel(collectionsNumber, nd.ID);
+                        ND = nd.ID;
                         SetRightPanel(ChosenItem);
                     };
                     PanelLeft.Controls.Add(panels[i]);
@@ -120,6 +130,7 @@ namespace PhoneBook
 
         private void SetRightPanel(NumberData ChosenItem)
         {
+            ComboBoxNumber.Items.Clear();
             if (ChosenItem.FirstName != null)
             {
                 FirstNameTextBox.Text = ChosenItem.FirstName;
@@ -136,12 +147,35 @@ namespace PhoneBook
             {
                 BirthMark.Text = ChosenItem.Birthday.ToShortDateString();
             }
+            foreach(var n in ChosenItem.Number)
+            {
+                ComboBoxNumber.Items.Add(n);
+            }
         }
 
-        private static NumberData ReturnCurrentPanel(CollectionsNumber collectionsNumber, NumberData nd)
+        private static NumberData ReturnCurrentPanel(CollectionsNumber collectionsNumber, int id)
         {
-            return collectionsNumber.NumberDatas.FirstOrDefault(u => u.FirstName == nd.FirstName && u.Number == nd.Number);
+            return collectionsNumber.NumberDatas.FirstOrDefault(u => u.ID == id);
         }
-        
+
+        private void AddNumberToChosePeople_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (AddNumberTextBox.TextLength > 0)
+            {
+                ComboBoxNumber.Items.Add(AddNumberTextBox.Text);
+            }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            CollectionsNumber collectionsNumber = new CollectionsNumber();
+            var nd = ReturnCurrentPanel(collectionsNumber, ND);
+            nd.FirstName = FirstNameTextBox.Text;
+            nd.SecondName = SecondNameTextBox.Text;
+            nd.Patronynic = SecondNameTextBox.Text;
+            nd.Birthday = DateTime.Parse(BirthMark.Text);
+            nd.Number = ComboBoxNumber.Items.Cast<string>().ToList();
+            collectionsNumber.SaveData();
+        }
     }
 }

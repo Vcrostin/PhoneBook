@@ -32,12 +32,15 @@
             this.RefreshButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.PanelRight = new System.Windows.Forms.Panel();
-            this.ListPhoneBox = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BirthMark = new System.Windows.Forms.MaskedTextBox();
-            this.SecondNameTextBox = new System.Windows.Forms.TextBox();
-            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.PatronymicTextBox = new System.Windows.Forms.TextBox();
+            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.SecondNameTextBox = new System.Windows.Forms.TextBox();
+            this.BirthMark = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ComboBoxNumber = new System.Windows.Forms.ComboBox();
+            this.AddNumberToChosePeople = new System.Windows.Forms.Button();
+            this.AddNumberTextBox = new System.Windows.Forms.TextBox();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.PanelLeft.SuspendLayout();
             this.PanelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,26 +85,53 @@
             // 
             // PanelRight
             // 
+            this.PanelRight.Controls.Add(this.SaveButton);
+            this.PanelRight.Controls.Add(this.AddNumberTextBox);
+            this.PanelRight.Controls.Add(this.AddNumberToChosePeople);
+            this.PanelRight.Controls.Add(this.ComboBoxNumber);
             this.PanelRight.Controls.Add(this.PatronymicTextBox);
             this.PanelRight.Controls.Add(this.FirstNameTextBox);
             this.PanelRight.Controls.Add(this.SecondNameTextBox);
             this.PanelRight.Controls.Add(this.BirthMark);
-            this.PanelRight.Controls.Add(this.ListPhoneBox);
             this.PanelRight.Controls.Add(this.pictureBox1);
             this.PanelRight.Location = new System.Drawing.Point(601, 67);
             this.PanelRight.Name = "PanelRight";
             this.PanelRight.Size = new System.Drawing.Size(350, 585);
             this.PanelRight.TabIndex = 3;
             // 
-            // ListPhoneBox
+            // PatronymicTextBox
             // 
-            this.ListPhoneBox.FormatString = "N0";
-            this.ListPhoneBox.FormattingEnabled = true;
-            this.ListPhoneBox.Location = new System.Drawing.Point(32, 189);
-            this.ListPhoneBox.Name = "ListPhoneBox";
-            this.ListPhoneBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.ListPhoneBox.Size = new System.Drawing.Size(197, 108);
-            this.ListPhoneBox.TabIndex = 4;
+            this.PatronymicTextBox.Location = new System.Drawing.Point(154, 128);
+            this.PatronymicTextBox.Name = "PatronymicTextBox";
+            this.PatronymicTextBox.Size = new System.Drawing.Size(177, 20);
+            this.PatronymicTextBox.TabIndex = 8;
+            this.PatronymicTextBox.Text = "Отчество";
+            // 
+            // FirstNameTextBox
+            // 
+            this.FirstNameTextBox.Location = new System.Drawing.Point(154, 42);
+            this.FirstNameTextBox.Name = "FirstNameTextBox";
+            this.FirstNameTextBox.Size = new System.Drawing.Size(178, 20);
+            this.FirstNameTextBox.TabIndex = 7;
+            this.FirstNameTextBox.Text = "Имя";
+            // 
+            // SecondNameTextBox
+            // 
+            this.SecondNameTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SecondNameTextBox.Location = new System.Drawing.Point(154, 84);
+            this.SecondNameTextBox.Name = "SecondNameTextBox";
+            this.SecondNameTextBox.Size = new System.Drawing.Size(178, 20);
+            this.SecondNameTextBox.TabIndex = 6;
+            this.SecondNameTextBox.Text = "Фамилия";
+            // 
+            // BirthMark
+            // 
+            this.BirthMark.Location = new System.Drawing.Point(50, 522);
+            this.BirthMark.Mask = "00/00/0000";
+            this.BirthMark.Name = "BirthMark";
+            this.BirthMark.Size = new System.Drawing.Size(104, 20);
+            this.BirthMark.TabIndex = 5;
+            this.BirthMark.ValidatingType = typeof(System.DateTime);
             // 
             // pictureBox1
             // 
@@ -114,39 +144,45 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             // 
-            // BirthMark
+            // ComboBoxNumber
             // 
-            this.BirthMark.Location = new System.Drawing.Point(50, 522);
-            this.BirthMark.Mask = "00/00/0000";
-            this.BirthMark.Name = "BirthMark";
-            this.BirthMark.Size = new System.Drawing.Size(104, 20);
-            this.BirthMark.TabIndex = 5;
-            this.BirthMark.ValidatingType = typeof(System.DateTime);
+            this.ComboBoxNumber.FormattingEnabled = true;
+            this.ComboBoxNumber.Location = new System.Drawing.Point(30, 201);
+            this.ComboBoxNumber.Name = "ComboBoxNumber";
+            this.ComboBoxNumber.Size = new System.Drawing.Size(162, 21);
+            this.ComboBoxNumber.TabIndex = 9;
             // 
-            // SecondNameTextBox
+            // AddNumberToChosePeople
             // 
-            this.SecondNameTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SecondNameTextBox.Location = new System.Drawing.Point(154, 84);
-            this.SecondNameTextBox.Name = "SecondNameTextBox";
-            this.SecondNameTextBox.Size = new System.Drawing.Size(178, 20);
-            this.SecondNameTextBox.TabIndex = 6;
-            this.SecondNameTextBox.Text = "Фамилия";
+            this.AddNumberToChosePeople.BackColor = System.Drawing.Color.Blue;
+            this.AddNumberToChosePeople.ForeColor = System.Drawing.Color.Snow;
+            this.AddNumberToChosePeople.Location = new System.Drawing.Point(227, 228);
+            this.AddNumberToChosePeople.Name = "AddNumberToChosePeople";
+            this.AddNumberToChosePeople.Size = new System.Drawing.Size(81, 50);
+            this.AddNumberToChosePeople.TabIndex = 10;
+            this.AddNumberToChosePeople.Text = "Добавить номер";
+            this.AddNumberToChosePeople.UseVisualStyleBackColor = false;
+            this.AddNumberToChosePeople.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddNumberToChosePeople_MouseClick);
             // 
-            // FirstNameTextBox
+            // AddNumberTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(154, 42);
-            this.FirstNameTextBox.Name = "FirstNameTextBox";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(178, 20);
-            this.FirstNameTextBox.TabIndex = 7;
-            this.FirstNameTextBox.Text = "Имя";
+            this.AddNumberTextBox.Location = new System.Drawing.Point(203, 202);
+            this.AddNumberTextBox.Name = "AddNumberTextBox";
+            this.AddNumberTextBox.Size = new System.Drawing.Size(129, 20);
+            this.AddNumberTextBox.TabIndex = 11;
             // 
-            // PatronymicTextBox
+            // SaveButton
             // 
-            this.PatronymicTextBox.Location = new System.Drawing.Point(154, 128);
-            this.PatronymicTextBox.Name = "PatronymicTextBox";
-            this.PatronymicTextBox.Size = new System.Drawing.Size(177, 20);
-            this.PatronymicTextBox.TabIndex = 8;
-            this.PatronymicTextBox.Text = "Отчество";
+            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SaveButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveButton.Location = new System.Drawing.Point(227, 516);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(72, 26);
+            this.SaveButton.TabIndex = 12;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // Pages
             // 
@@ -177,10 +213,13 @@
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MaskedTextBox BirthMark;
-        public System.Windows.Forms.ListBox ListPhoneBox;
         public System.Windows.Forms.TextBox PatronymicTextBox;
         public System.Windows.Forms.TextBox FirstNameTextBox;
         public System.Windows.Forms.TextBox SecondNameTextBox;
         public System.Windows.Forms.Panel PanelRight;
+        private System.Windows.Forms.ComboBox ComboBoxNumber;
+        private System.Windows.Forms.Button AddNumberToChosePeople;
+        private System.Windows.Forms.TextBox AddNumberTextBox;
+        private System.Windows.Forms.Button SaveButton;
     }
 }
