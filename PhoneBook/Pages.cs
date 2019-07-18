@@ -159,6 +159,17 @@ namespace PhoneBook
             {
                 ComboBoxNumber.Items.Add(n);
             }
+            Bitmap bitmap;
+            if (ChosenItem.ImageLink != null)
+            {
+                bitmap = new Bitmap(ChosenItem.ImageLink);
+            }
+            else
+            {
+                bitmap = Properties.Resources.unnamed;
+            }
+            pictureBox1.Image = bitmap;
+            ErrorText.Text = "";
         }
 
         private static NumberData ReturnCurrentPanel(CollectionsNumber collectionsNumber, int id)
@@ -184,6 +195,37 @@ namespace PhoneBook
             nd.Number = ComboBoxNumber.Items.Cast<string>().ToList();
             collectionsNumber.SaveData();
             collectionsNumber.UpdateData();
+        }
+
+        private void OpenFileDialogForAddImage_FileOk(object sender, CancelEventArgs e)
+        {
+            var nd = ReturnCurrentPanel(collectionsNumber, ND);
+            try
+            {
+                Bitmap image = new Bitmap(OpenFileDialogForAddImage.FileName);
+                pictureBox1.Image = image;
+                nd.ImageLink = OpenFileDialogForAddImage.FileName;
+            }
+            catch (ArgumentException)
+            {
+                ErrorText.Text = "Вы указали недопустимый файл";
+            }
+        }
+
+        private void SelectFileButton_Click(object sender, EventArgs e)
+        {
+            ErrorText.Text = "";
+            OpenFileDialogForAddImage.ShowDialog();
+        }
+
+        private void ErrorText_Click(object sender, EventArgs e)
+        {
+            ErrorText.Text = "";
+        }
+
+        private void PanelRight_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

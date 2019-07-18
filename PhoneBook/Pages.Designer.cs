@@ -41,6 +41,9 @@
             this.SecondNameTextBox = new System.Windows.Forms.TextBox();
             this.BirthMark = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.OpenFileDialogForAddImage = new System.Windows.Forms.OpenFileDialog();
+            this.SelectFileButton = new System.Windows.Forms.Button();
+            this.ErrorText = new System.Windows.Forms.Label();
             this.PanelLeft.SuspendLayout();
             this.PanelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,6 +88,8 @@
             // 
             // PanelRight
             // 
+            this.PanelRight.Controls.Add(this.ErrorText);
+            this.PanelRight.Controls.Add(this.SelectFileButton);
             this.PanelRight.Controls.Add(this.SaveButton);
             this.PanelRight.Controls.Add(this.AddNumberTextBox);
             this.PanelRight.Controls.Add(this.AddNumberToChosePeople);
@@ -98,6 +103,7 @@
             this.PanelRight.Name = "PanelRight";
             this.PanelRight.Size = new System.Drawing.Size(350, 585);
             this.PanelRight.TabIndex = 3;
+            this.PanelRight.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelRight_Paint);
             // 
             // SaveButton
             // 
@@ -184,6 +190,33 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             // 
+            // OpenFileDialogForAddImage
+            // 
+            this.OpenFileDialogForAddImage.FileName = "openFileDialog1";
+            this.OpenFileDialogForAddImage.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialogForAddImage_FileOk);
+            // 
+            // SelectFileButton
+            // 
+            this.SelectFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SelectFileButton.Location = new System.Drawing.Point(38, 175);
+            this.SelectFileButton.Name = "SelectFileButton";
+            this.SelectFileButton.Size = new System.Drawing.Size(54, 20);
+            this.SelectFileButton.TabIndex = 13;
+            this.SelectFileButton.Text = "Обзор";
+            this.SelectFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.SelectFileButton.UseVisualStyleBackColor = true;
+            this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
+            // 
+            // ErrorText
+            // 
+            this.ErrorText.AutoSize = true;
+            this.ErrorText.ForeColor = System.Drawing.Color.Lime;
+            this.ErrorText.Location = new System.Drawing.Point(31, 161);
+            this.ErrorText.Name = "ErrorText";
+            this.ErrorText.Size = new System.Drawing.Size(0, 13);
+            this.ErrorText.TabIndex = 14;
+            this.ErrorText.Click += new System.EventHandler(this.ErrorText_Click);
+            // 
             // Pages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,5 +255,8 @@
         private System.Windows.Forms.Button AddNumberToChosePeople;
         private System.Windows.Forms.TextBox AddNumberTextBox;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogForAddImage;
+        private System.Windows.Forms.Button SelectFileButton;
+        private System.Windows.Forms.Label ErrorText;
     }
 }
