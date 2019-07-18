@@ -52,7 +52,8 @@
             // PanelLeft
             // 
             this.PanelLeft.AutoScroll = true;
-            this.PanelLeft.BackColor = System.Drawing.Color.Khaki;
+            this.PanelLeft.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PanelLeft.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PanelLeft.Controls.Add(this.RefreshButton);
             this.PanelLeft.Controls.Add(this.AddButton);
             this.PanelLeft.Location = new System.Drawing.Point(75, 48);
@@ -74,10 +75,11 @@
             // 
             // AddButton
             // 
-            this.AddButton.BackColor = System.Drawing.Color.Red;
+            this.AddButton.BackColor = System.Drawing.Color.IndianRed;
             this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.AddButton.Location = new System.Drawing.Point(46, 3);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +105,7 @@
             this.PanelRight.Name = "PanelRight";
             this.PanelRight.Size = new System.Drawing.Size(350, 585);
             this.PanelRight.TabIndex = 3;
+            this.PanelRight.Visible = false;
             this.PanelRight.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelRight_Paint);
             // 
             // SaveButton
@@ -128,6 +131,7 @@
             // AddNumberToChosePeople
             // 
             this.AddNumberToChosePeople.BackColor = System.Drawing.Color.Blue;
+            this.AddNumberToChosePeople.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddNumberToChosePeople.ForeColor = System.Drawing.Color.Snow;
             this.AddNumberToChosePeople.Location = new System.Drawing.Point(227, 228);
             this.AddNumberToChosePeople.Name = "AddNumberToChosePeople";
@@ -197,6 +201,8 @@
             // 
             // SelectFileButton
             // 
+            this.SelectFileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(205)))), ((int)(((byte)(79)))));
+            this.SelectFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SelectFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SelectFileButton.Location = new System.Drawing.Point(38, 175);
             this.SelectFileButton.Name = "SelectFileButton";
@@ -204,7 +210,7 @@
             this.SelectFileButton.TabIndex = 13;
             this.SelectFileButton.Text = "Обзор";
             this.SelectFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.SelectFileButton.UseVisualStyleBackColor = true;
+            this.SelectFileButton.UseVisualStyleBackColor = false;
             this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
             // 
             // ErrorText

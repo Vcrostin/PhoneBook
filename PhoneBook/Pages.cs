@@ -118,6 +118,7 @@ namespace PhoneBook
                     panels[i].Controls.Add(ContactsNumber);
                     panels[i].MouseClick += (a, b) =>
                     {
+                        PanelRight.Visible = true;
                         NumberData ChosenItem = ReturnCurrentPanel(collectionsNumber, nd.ID);
                         ND = nd.ID;
                         SetRightPanel(ChosenItem);
