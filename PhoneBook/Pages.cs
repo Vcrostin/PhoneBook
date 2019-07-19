@@ -23,11 +23,6 @@ namespace PhoneBook
             this.Close();
         }
 
-        private void Pages_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void AddButton_MouseClick(object sender, MouseEventArgs e)
         {
             AdditonForm additonForm = new AdditonForm();
@@ -227,6 +222,16 @@ namespace PhoneBook
         private void PanelRight_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Pages_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dispose();
+        }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            ComboBoxNumber.Items.Remove(ComboBoxNumber.SelectedText);
         }
     }
 }

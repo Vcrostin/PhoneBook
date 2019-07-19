@@ -32,6 +32,9 @@
             this.RefreshButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.PanelRight = new System.Windows.Forms.Panel();
+            this.RemoveButton = new System.Windows.Forms.Button();
+            this.ErrorText = new System.Windows.Forms.Label();
+            this.SelectFileButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.AddNumberTextBox = new System.Windows.Forms.TextBox();
             this.AddNumberToChosePeople = new System.Windows.Forms.Button();
@@ -42,8 +45,6 @@
             this.BirthMark = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.OpenFileDialogForAddImage = new System.Windows.Forms.OpenFileDialog();
-            this.SelectFileButton = new System.Windows.Forms.Button();
-            this.ErrorText = new System.Windows.Forms.Label();
             this.PanelLeft.SuspendLayout();
             this.PanelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,6 +91,7 @@
             // 
             // PanelRight
             // 
+            this.PanelRight.Controls.Add(this.RemoveButton);
             this.PanelRight.Controls.Add(this.ErrorText);
             this.PanelRight.Controls.Add(this.SelectFileButton);
             this.PanelRight.Controls.Add(this.SaveButton);
@@ -107,6 +109,42 @@
             this.PanelRight.TabIndex = 3;
             this.PanelRight.Visible = false;
             this.PanelRight.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelRight_Paint);
+            // 
+            // RemoveButton
+            // 
+            this.RemoveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(12)))), ((int)(((byte)(154)))));
+            this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveButton.Location = new System.Drawing.Point(124, 175);
+            this.RemoveButton.Name = "RemoveButton";
+            this.RemoveButton.Size = new System.Drawing.Size(55, 19);
+            this.RemoveButton.TabIndex = 15;
+            this.RemoveButton.Text = "Remove";
+            this.RemoveButton.UseVisualStyleBackColor = false;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            // 
+            // ErrorText
+            // 
+            this.ErrorText.AutoSize = true;
+            this.ErrorText.ForeColor = System.Drawing.Color.Lime;
+            this.ErrorText.Location = new System.Drawing.Point(31, 161);
+            this.ErrorText.Name = "ErrorText";
+            this.ErrorText.Size = new System.Drawing.Size(0, 13);
+            this.ErrorText.TabIndex = 14;
+            this.ErrorText.Click += new System.EventHandler(this.ErrorText_Click);
+            // 
+            // SelectFileButton
+            // 
+            this.SelectFileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(205)))), ((int)(((byte)(79)))));
+            this.SelectFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SelectFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SelectFileButton.Location = new System.Drawing.Point(38, 175);
+            this.SelectFileButton.Name = "SelectFileButton";
+            this.SelectFileButton.Size = new System.Drawing.Size(54, 20);
+            this.SelectFileButton.TabIndex = 13;
+            this.SelectFileButton.Text = "Обзор";
+            this.SelectFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.SelectFileButton.UseVisualStyleBackColor = false;
+            this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
             // 
             // SaveButton
             // 
@@ -143,10 +181,13 @@
             // 
             // ComboBoxNumber
             // 
+            this.ComboBoxNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxNumber.FormattingEnabled = true;
+            this.ComboBoxNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ComboBoxNumber.Location = new System.Drawing.Point(30, 201);
             this.ComboBoxNumber.Name = "ComboBoxNumber";
             this.ComboBoxNumber.Size = new System.Drawing.Size(162, 21);
+            this.ComboBoxNumber.Sorted = true;
             this.ComboBoxNumber.TabIndex = 9;
             // 
             // PatronymicTextBox
@@ -199,30 +240,6 @@
             this.OpenFileDialogForAddImage.FileName = "openFileDialog1";
             this.OpenFileDialogForAddImage.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialogForAddImage_FileOk);
             // 
-            // SelectFileButton
-            // 
-            this.SelectFileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(205)))), ((int)(((byte)(79)))));
-            this.SelectFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SelectFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SelectFileButton.Location = new System.Drawing.Point(38, 175);
-            this.SelectFileButton.Name = "SelectFileButton";
-            this.SelectFileButton.Size = new System.Drawing.Size(54, 20);
-            this.SelectFileButton.TabIndex = 13;
-            this.SelectFileButton.Text = "Обзор";
-            this.SelectFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.SelectFileButton.UseVisualStyleBackColor = false;
-            this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
-            // 
-            // ErrorText
-            // 
-            this.ErrorText.AutoSize = true;
-            this.ErrorText.ForeColor = System.Drawing.Color.Lime;
-            this.ErrorText.Location = new System.Drawing.Point(31, 161);
-            this.ErrorText.Name = "ErrorText";
-            this.ErrorText.Size = new System.Drawing.Size(0, 13);
-            this.ErrorText.TabIndex = 14;
-            this.ErrorText.Click += new System.EventHandler(this.ErrorText_Click);
-            // 
             // Pages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,7 +255,7 @@
             this.Name = "Pages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pages";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Pages_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Pages_FormClosing);
             this.PanelLeft.ResumeLayout(false);
             this.PanelRight.ResumeLayout(false);
             this.PanelRight.PerformLayout();
@@ -264,5 +281,6 @@
         private System.Windows.Forms.OpenFileDialog OpenFileDialogForAddImage;
         private System.Windows.Forms.Button SelectFileButton;
         private System.Windows.Forms.Label ErrorText;
+        private System.Windows.Forms.Button RemoveButton;
     }
 }
