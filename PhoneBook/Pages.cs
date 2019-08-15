@@ -49,6 +49,7 @@ namespace PhoneBook
         private CollectionsNumber collectionsNumber = new CollectionsNumber();
         private void CreatePanelList()
         {
+            collectionsNumber = new CollectionsNumber();
             if(collectionsNumber.NumberDatas.Count > 0)
             {
                 Panel[] panels = new Panel[collectionsNumber.NumberDatas.Count];
